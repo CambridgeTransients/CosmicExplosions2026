@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Participants — CosmicExplosions 2026</title>
+  <meta name="description" content="Full list of registered participants for CosmicExplosions 2026, Cambridge Extragalactic Transients Workshop.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Search bar */
+    .search-wrap {
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .search-input {
+      flex: 1;
+      min-width: 200px;
+      padding: 0.55rem 1rem;
+      border: 1px solid #dde2ea;
+      border-radius: 6px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: #1a2744;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .search-input:focus { border-color: #003f7f; }
+    .search-label { font-size: 0.85rem; color: #6b7280; white-space: nowrap; }
+
+    /* Stats bar */
+    .stats-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .stat-chip {
+      background: #f4f6f9;
+      border: 1px solid #dde2ea;
+      border-radius: 20px;
+      padding: 0.3rem 0.85rem;
+      font-size: 0.82rem;
+      color: #374151;
+      font-weight: 500;
+    }
+    .stat-chip strong { color: #1a2744; }
+
+    /* Hidden row */
+    .hidden-row { display: none; }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Navigation ===== -->
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">CosmicExplosions 2026</a>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="programme.html">Programme</a></li>
+        <li><a href="participants.html" class="active">Participants</a></li>
+        <li><a href="logistics.html">Logistics</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===== Page Header ===== -->
+  <div style="background:#1a2744; padding:2.5rem 0 2rem;">
+    <div class="container">
+      <p class="hero-eyebrow" style="margin-bottom:0.5rem;">CosmicExplosions 2026</p>
+      <h1 style="color:#fff; margin-bottom:0.35rem;">Participants</h1>
+      <p style="color:#a3c4e8; font-size:1rem;">Registered attendees — 27–31 July 2026</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+
+      <!-- Stats -->
+      <div class="stats-bar">
+        <div class="stat-chip"><strong>44</strong> registered participants</div>
+        <div class="stat-chip"><strong>22</strong> talks / demos</div>
+        <div class="stat-chip"><strong>~10</strong> countries represented</div>
+        <div class="stat-chip">+<strong>~3–4</strong> local Cambridge participants (TBC)</div>
+      </div>
+
+      <div class="banner banner--info" style="margin-bottom:1.5rem;">
+        <span class="banner-icon">&#8505;&#65039;</span>
+        <div>
+          Sorted alphabetically by last name.
+          An additional 3–4 local Cambridge participants are yet to be confirmed and will be added to this list.
+          Participants listed as &ldquo;TBC&rdquo; have expressed intent to attend but have not yet confirmed.
+        </div>
+      </div>
+
+      <!-- Search -->
+      <div class="search-wrap">
+        <span class="search-label">Filter:</span>
+        <input
+          type="text"
+          class="search-input"
+          id="participantSearch"
+          placeholder="Search by name, affiliation, or presentation type…"
+          oninput="filterTable()"
+          autocomplete="off"
+        >
+      </div>
+
+      <div class="participants-table-wrap">
+        <table class="participants-table" id="participantsTable">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Position</th>
+              <th>Affiliation</th>
+              <th>Presenting</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <!-- Sorted by last name -->
+
+            <tr>
+              <td>1</td>
+              <td class="name">Charlotte Angus</td>
+              <td>Postdoc</td>
+              <td>Queen's University Belfast (QUB)</td>
+              <td><span class="presenting-badge presenting-talk">Talk</span></td>
+            </tr>
+
+            <tr>
+              <td>2</td>
+              <td class="name">Sharan Banagiri</td>
+              <td>Postdoc</td>
+              <td>Monash University</td>
+              <td><span class="presenting-badge presenting-talk">Talk</span></td>
+            </tr>
+
+            <tr>
+              <td>3</td>
+              <td class="name">Aleksandra Bochenek</td>
+              <td>Student</td>
+              <td>Liverpool John Moores University (LJMU)</td>
+              <td><span class="presenting-badge presenting-talk">Talk</span></td>
+            </tr>
+
+            <tr>
+              <td>4</td>
+              <td class="name">Debatri Chattopadhyay</td>
+              <td>Postdoc</td>
+              <td>—</td>
+              <td><span class="presenting-badge presenting-talk">Talk</span></td>
+            </tr>
+
+            <tr>
+              <td>5</td>
+              <td class="name">Gregory Corcoran</td>
+              <td>Student</td>
+              <td>University College Dublin (UCD)</td>
+              <td><span class="presenting-badge presenting-no">No</span></td>
+            </tr>
+
+            <tr>
+              <td>6</td>
+              <td class="name">Laura Cotter</td>
+              <td>Student</td>
+              <td>University College Dublin (UCD)</td>
+              <td><span class="presenting-badge presenting-talk">Talk</span></td>
+            </tr>
+
+            <tr>
+              <td>7</td>
+              <td class="name">Joyce van Dalen</td>
+              <td>Student</td>
+              <td>Radboud University</td>
+              <td><span class="presenting-badge presenting-talk">Talk</span></td>
+            </tr>
+
+            <tr>
+              <td>8</td>
+              <td class="name">Noah Franz</td>
+              <td>Student</td>
+              <td>University of Arizona</td>
+              <td><span class="presenting-badge presenting-both">Demo / Talk</span></td>
+            </tr>
+
+            <tr>
+              <td>9</td>
+              <td class="name">James Gillanders</td>
+              <td>Postdoc</td>
+              <td>University of Oxford</td>
+              <td><span class="presenting-badge presenting-no">No</span></td>
+            </tr>
+
+            <tr>
+              <td>10</td>
+              <td class="name">Anamaria Gkini</td>
+              <td>Student</td>
+              <td>Stockholm University</td>
+              <td><span class="presenting-badge presenting-no">No</span></td>
+            </tr>
+
+            <tr>
+              <td>11</td>
+              <td class="name">Andreja Gomboc</td>
+              <td>Faculty</td>
+              <td>University of Nova Gorica</td>
+              <td><span class="presenting-badge presenting-demo">Demo</span></td>
+            </tr>
+
+            <tr>
+              <td>12</td>
+              <td class="name">Abhinav Goyal</td>
+              <td>Student</td>
+              <td>—</td>
+              <td><span class="presenting-badge presenting-no">No</span></td>
+            </tr>
+
+            <tr>
+              <td>13</td>
+              <td class="name">Helena Grabham</td>
+              <td>Student</td>
+              <td>Liverpool John Moores University (LJMU)</td>
+              <td><span class="presenting-badge presenting-no">No</span></td>
+            </tr>
+
+            <tr>
+              <td>14</td>
+              <td class="name">Rahul Gupta</td>
+              <td>Postdoc</td>
+              <td>—</td>
+              <td><span class="presenting-badge presenting-talk">Talk</span></td>
+            </tr>
+
+            <tr>
+              <td>15</td>
+              <td class="name">Harry Addison</td>
+              <td>Student</td>
+              <td>—</td>
+              <td><span class="presenting-badge presenting-no">No</span></td>
+            </tr>
+
+            <tr>
+              <td>16</td>
+              <td class="name">Nandini Hazra</td>
+              <td>Postdoc</td>
+              <td>Gran Sasso Science Institute (GSSI)</td>
+              <td><span class="presenting-badge presenting-both">Talk + Discussion lead</span></td>
+            </tr>
+
+            <tr>
+              <td>17</td>
+              <td class="name">Ryosuke Hirai</td>
+              <td>Postdoc</td>
+              <td>RIKEN</td>
+              <td><span class="presenting-badge presenting-talk">Talk</span></td>
+            </tr>
+
+            <tr>
+              <td>18</td>
+              <td class="name">Agnes van Hoof</td>
+              <td>Student</td>
+              <td>Radboud University</td>
+              <td><span class="presenting-badge presenting-no">No</span></td>
+            </tr>
+
+            <tr>
+              <td>19</td>
+              <td class="name">Christopher Irwin</td>
+              <td>Postdoc</td>
+              <td>—</td>
+              <td><span class="presenting-badge presenting-talk">Talk</span></td>
+            </tr>
+
+            <tr>
+              <td>20</td>
+              <td class="name">Peter Jonker</td>
+              <td>Faculty</td>
+              <td>Radboud University</td>
+              <td><span class="presenting-badge presenting-no">No</span></td>
+            </tr>
+
+            <tr>
+              <td>21</td>
+              <td class="name">Lisa Kelsey</td>
+              <td>Postdoc</td>
+              <td>University of Cambridge</td>
+              <td><span class="presenting-badge presenting-tbc">Talk (TBC)</span></td>
+            </tr>
+
+            <tr>
+              <td>22</td>
+              <td class="name">Sorcha Kennelly</td>
+              <td>Student</td>
+              <td>Liverpool John Moores University (LJMU)</td>
+              <td><span class="presenting-badge presenting-talk">Talk</span></td>
+            </tr>
+
+            <tr>
+              <td>23</td>
+              <td class="name">Eleonora Loffredo</td>
+              <td>Postdoc</td>
+              <td>INAF</td>
+              <td><span class="presenting-badge presenting-discussion">Discussion co-lead</span></td>
+            </tr>
+
+            <tr>
+              <td>24</td>
+              <td class="name">Soheb Mandhai</td>
+              <td>Postdoc</td>
+              <td>—</td>
+              <td><span class="presenting-badge presenting-talk">Talk</span></td>
+            </tr>
+
+            <tr>
+              <td>25</td>
+              <td class="name">Sondos Mohsen-Tanev</td>
+              <td>Student</td>
+              <td>Tel Aviv University (TAU)</td>
+              <td><span class="presenting-badge presenting-talk">Talk</span></td>
+            </tr>
+
+            <tr>
+              <td>26</td>
+              <td class="name">Conor Omand</td>
+              <td>Postdoc</td>
+              <td>Liverpool John Moores University (LJMU)</td>
+              <td><span class="presenting-badge presenting-talk">Talk</span></td>
+            </tr>
+
+            <tr>
+              <td>27</td>
+              <td class="name">Silvia Piranomonte</td>
+              <td>Faculty</td>
+              <td>INAF</td>
+              <td><span class="presenting-badge presenting-discussion">Discussion lead</span></td>
+            </tr>
+
+            <tr>
+              <td>28</td>
+              <td class="name">Quentin Pognan</td>
+              <td>Postdoc</td>
+              <td>Max Planck Institute for Gravitational Physics (AEI)</td>
+              <td><span class="presenting-badge presenting-talk">Talk</span></td>
+            </tr>
+
+            <tr>
+              <td>29</td>
+              <td class="name">Liana Rauf</td>
+              <td>Postdoc</td>
+              <td>Australian National University (ANU)</td>
+              <td><span class="presenting-badge presenting-tbc">Talk (TBC)</span></td>
+            </tr>
+
+            <tr>
+              <td>30</td>
+              <td class="name">Maria Edvige Ravasio</td>
+              <td>Postdoc</td>
+              <td>CSIC / ICE Barcelona</td>
+              <td><span class="presenting-badge presenting-no">No</span></td>
+            </tr>
+
+            <tr>
+              <td>31</td>
+              <td class="name">Nikhil Sarin</td>
+              <td>Fellow</td>
+              <td>University of Cambridge (KICC)</td>
+              <td><span class="presenting-badge presenting-org">Organiser</span></td>
+            </tr>
+
+            <tr>
+              <td>32</td>
+              <td class="name">Steve Schulze</td>
+              <td>Faculty</td>
+              <td>—</td>
+              <td><span class="presenting-badge presenting-talk">Talk</span></td>
+            </tr>
+
+            <tr>
+              <td>33</td>
+              <td class="name">Avinash Singh</td>
+              <td>Postdoc</td>
+              <td>—</td>
+              <td><span class="presenting-badge presenting-no">No</span></td>
+            </tr>
+
+            <tr>
+              <td>34</td>
+              <td class="name">Adam Smith</td>
+              <td>Student</td>
+              <td>Queen's University Belfast (QUB)</td>
+              <td><span class="presenting-badge presenting-no">No</span></td>
+            </tr>
+
+            <tr>
+              <td>35</td>
+              <td class="name">Albert Sneppen</td>
+              <td>Student</td>
+              <td>—</td>
+              <td><span class="presenting-badge presenting-talk">Talk</span></td>
+            </tr>
+
+            <tr>
+              <td>36</td>
+              <td class="name">Heloise Stevance</td>
+              <td>Postdoc</td>
+              <td>—</td>
+              <td><span class="presenting-badge presenting-both">Talk / Demo</span></td>
+            </tr>
+
+            <tr>
+              <td>37</td>
+              <td class="name">Alice Townsend</td>
+              <td>Postdoc</td>
+              <td>—</td>
+              <td><span class="presenting-badge presenting-no">No</span></td>
+            </tr>
+
+            <tr>
+              <td>38</td>
+              <td class="name">Konstantinos Tsalapatas</td>
+              <td>Student</td>
+              <td>Stockholm University</td>
+              <td><span class="presenting-badge presenting-no">No</span></td>
+            </tr>
+
+            <tr>
+              <td>39</td>
+              <td class="name">Nicholas Vieira</td>
+              <td>Postdoc</td>
+              <td>Northwestern University</td>
+              <td><span class="presenting-badge presenting-both">Demo / Talk</span></td>
+            </tr>
+
+            <tr>
+              <td>40</td>
+              <td class="name">Meet J. Vyas</td>
+              <td>Student</td>
+              <td>Ahmedabad University</td>
+              <td><span class="presenting-badge presenting-no">No</span></td>
+            </tr>
+
+            <tr>
+              <td>41</td>
+              <td class="name">Yogesh Wagh</td>
+              <td>Student</td>
+              <td>Liverpool John Moores University (LJMU)</td>
+              <td><span class="presenting-badge presenting-no">No</span></td>
+            </tr>
+
+            <tr>
+              <td>42</td>
+              <td class="name">Ben Warwick</td>
+              <td>Student</td>
+              <td>University of Warwick</td>
+              <td><span class="presenting-badge presenting-no">No</span></td>
+            </tr>
+
+            <tr>
+              <td>43</td>
+              <td class="name">Neha Yadav</td>
+              <td>Student</td>
+              <td>—</td>
+              <td><span class="presenting-badge presenting-both">Demo / Discussion lead</span></td>
+            </tr>
+
+            <tr>
+              <td>44</td>
+              <td class="name">David Yallup</td>
+              <td>Postdoc</td>
+              <td>University of Cambridge</td>
+              <td><span class="presenting-badge presenting-demo">Demo</span></td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+      <p class="note" style="margin-top:1rem;">
+        Affiliations marked &ldquo;—&rdquo; were not determinable from the information provided.
+        Yogesh Wagh appears once (duplicate entry removed; LJMU affiliation used).
+        Tanishk Mohan (IIT Bombay) expressed online interest only and is not listed as an in-person participant.
+        An additional ~3–4 local Cambridge participants are yet to be confirmed.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span class="footer-brand">CosmicExplosions 2026</span>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="programme.html">Programme</a></li>
+        <li><a href="participants.html">Participants</a></li>
+        <li><a href="logistics.html">Logistics</a></li>
+      </ul>
+    </div>
+    <div class="container">
+      <div class="footer-copy">
+        CosmicExplosions 2026 &nbsp;|&nbsp; Kavli Institute for Cosmology, Cambridge
+        &nbsp;|&nbsp; Organiser: <a href="mailto:nsarin.astro@gmail.com" style="color:#8899bb;">Nikhil Sarin</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+
+    function filterTable() {
+      const query = document.getElementById('participantSearch').value.toLowerCase();
+      const rows = document.querySelectorAll('#participantsTable tbody tr');
+      rows.forEach(function(row) {
+        const text = row.textContent.toLowerCase();
+        row.style.display = text.includes(query) ? '' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>

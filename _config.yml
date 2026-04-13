@@ -1,0 +1,14 @@
+# GitHub Pages configuration for CosmicExplosions 2026
+# We are using custom HTML/CSS — no Jekyll theme required.
+theme: null
+
+# Prevent Jekyll from processing files prefixed with underscore
+# and ensure the css directory is included.
+include:
+  - css
+
+# Site metadata (used if you ever add Jekyll Liquid templating)
+title: "CosmicExplosions 2026"
+description: "A Cambridge Extragalactic Transients Workshop — 27–31 July 2026"
+url: "https://cambridgetransients.github.io"
+baseurl: "/CosmicExplosions2026"
