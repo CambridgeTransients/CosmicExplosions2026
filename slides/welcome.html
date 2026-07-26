@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome — CosmicExplosions 2026</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css">
+  <style>
+    /* ── Brand tokens ── */
+    :root {
+      --navy:      #1a2744;
+      --camblue:   #003f7f;
+      --accent:    #4a7fb5;
+      --gold:      #c9a227;
+      --gold-lt:   #f0d980;
+      --mist:      #a3c4e8;
+      --off-white: #e8edf5;
+    }
+
+    .reveal-viewport { background: var(--navy); }
+    .reveal .slides { font-family: 'Inter', 'Segoe UI', sans-serif; }
+
+    /* ── Headings use a serif feel ── */
+    .reveal h1, .reveal h2, .reveal h3 {
+      font-family: 'Georgia', 'Palatino Linotype', serif;
+      color: #ffffff;
+      text-transform: none;
+      letter-spacing: -0.01em;
+      text-shadow: none;
+      text-wrap: balance;
+    }
+    .reveal h1 { font-size: 1.9em; line-height: 1.15; }
+    .reveal h2 { font-size: 1.35em; color: var(--gold-lt); margin-bottom: 0.6em; }
+    .reveal h3 { font-size: 1em; color: var(--mist); font-style: italic; font-weight: normal; }
+
+    .reveal p, .reveal li { color: var(--off-white); font-size: 0.82em; line-height: 1.65; }
+    .reveal ul { list-style: none; padding: 0; margin: 0; }
+    .reveal ul li { padding: 0.3em 0 0.3em 1.4em; position: relative; }
+    .reveal ul li::before { content: '›'; position: absolute; left: 0; color: var(--gold); font-size: 1.1em; line-height: 1.5; }
+
+    /* ── Title slide ── */
+    .slide-title {
+      background: linear-gradient(160deg, var(--navy) 0%, #0e1d3a 60%, #051020 100%);
+    }
+    .slide-title::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,0.18) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,255,255,0.10) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
+      background-size: 130px 130px, 70px 70px, 45px 45px;
+      background-position: 0 0, 35px 35px, 18px 55px;
+      pointer-events: none;
+    }
+    .eyebrow {
+      font-size: 0.52em;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.6em;
+      display: block;
+    }
+    .title-sub {
+      font-size: 0.62em;
+      color: var(--mist);
+      font-weight: 300;
+      margin-top: 0.5em;
+      line-height: 1.5;
+    }
+    .title-rule {
+      width: 60px;
+      height: 2px;
+      background: var(--gold);
+      margin: 0.8em auto;
+      border-radius: 2px;
+    }
+
+    /* ── Section slides ── */
+    .slide-section {
+      background: linear-gradient(135deg, #0e1d3a 0%, var(--navy) 100%);
+    }
+    .slide-light {
+      background: #f4f6f9;
+    }
+    .slide-light h2 { color: var(--navy); }
+    .slide-light p, .slide-light li { color: #374151; }
+    .slide-light ul li::before { color: var(--gold); }
+
+    /* ── Goal cards ── */
+    .goal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6em;
+      margin-top: 0.5em;
+    }
+    .goal-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(201,162,39,0.25);
+      border-left: 3px solid var(--gold);
+      border-radius: 6px;
+      padding: 0.65em 0.85em;
+      text-align: left;
+    }
+    .goal-card .gc-num {
+      font-size: 0.55em;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 0.2em;
+    }
+    .goal-card .gc-title {
+      font-size: 0.72em;
+      font-weight: 600;
+      color: #ffffff;
+      display: block;
+      margin-bottom: 0.2em;
+    }
+    .goal-card .gc-body {
+      font-size: 0.6em;
+      color: var(--mist);
+      line-height: 1.5;
+    }
+
+    /* ── Programme overview ── */
+    .day-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.4em;
+      margin-top: 0.5em;
+    }
+    .day-col { text-align: center; }
+    .day-name {
+      font-size: 0.58em;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 0.3em;
+    }
+    .day-date-label {
+      font-size: 0.48em;
+      color: var(--mist);
+      display: block;
+      margin-bottom: 0.4em;
+    }
+    .day-item {
+      font-size: 0.5em;
+      background: rgba(255,255,255,0.06);
+      border-radius: 4px;
+      padding: 0.3em 0.4em;
+      margin-bottom: 0.25em;
+      color: var(--off-white);
+      line-height: 1.35;
+      border-left: 2px solid transparent;
+      text-align: left;
+    }
+    .day-item.t-talk   { border-color: #4a7fb5; }
+    .day-item.t-demo   { border-color: #22c55e; }
+    .day-item.t-disc   { border-color: #f97316; }
+    .day-item.t-redback{ border-color: #f59e0b; }
+    .day-item.t-social { border-color: #a855f7; }
+
+    /* ── Logistics ── */
+    .logistics-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6em;
+      margin-top: 0.5em;
+    }
+    .log-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(163,196,232,0.2);
+      border-radius: 6px;
+      padding: 0.65em 0.9em;
+      text-align: left;
+    }
+    .log-label {
+      font-size: 0.5em;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mist);
+      display: block;
+      margin-bottom: 0.25em;
+    }
+    .log-value {
+      font-size: 0.7em;
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .log-sub {
+      font-size: 0.55em;
+      color: var(--mist);
+      margin-top: 0.1em;
+      display: block;
+    }
+
+    /* ── Code of conduct ── */
+    .coc-list { margin-top: 0.4em; }
+    .coc-list li {
+      padding: 0.4em 0 0.4em 1.6em;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      font-size: 0.75em;
+    }
+    .coc-list li:last-child { border-bottom: none; }
+
+    /* ── Intro prompt ── */
+    .prompt-box {
+      background: rgba(201,162,39,0.1);
+      border: 1px solid rgba(201,162,39,0.4);
+      border-radius: 8px;
+      padding: 1em 1.4em;
+      margin: 0.6em auto;
+      max-width: 80%;
+      text-align: center;
+    }
+    .prompt-box p {
+      font-size: 0.85em;
+      color: var(--gold-lt);
+      font-style: italic;
+      margin: 0;
+    }
+    .prompt-note {
+      font-size: 0.55em;
+      color: var(--mist);
+      margin-top: 0.8em;
+    }
+
+    /* ── Fragment tweaks ── */
+    .reveal .fragment { opacity: 0.25; }
+    .reveal .fragment.visible { opacity: 1; }
+
+    /* ── Slide number ── */
+    .reveal .slide-number { color: var(--gold); font-size: 0.65em; }
+  </style>
+</head>
+<body>
+<div class="reveal">
+  <div class="slides">
+
+    <!-- ══ 1. TITLE ══ -->
+    <section class="slide-title" data-background-color="#1a2744">
+      <div style="position:relative; z-index:1;">
+        <span class="eyebrow">Cambridge Extragalactic Transients Workshop</span>
+        <div class="title-rule"></div>
+        <h1>CosmicExplosions<br>2026</h1>
+        <div class="title-sub">
+          27–31 July 2026 &nbsp;·&nbsp; Ryle Room, KICC, Cambridge
+        </div>
+        <div style="margin-top:1.4em; font-size:0.55em; color:var(--mist);">
+          Nikhil Sarin &nbsp;·&nbsp; Kavli Institute for Cosmology
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ 2. GOALS ══ -->
+    <section data-background-color="#1a2744">
+      <h2>Goals of the Week</h2>
+      <div class="goal-grid">
+        <div class="goal-card">
+          <span class="gc-num">01 — Primary</span>
+          <span class="gc-title">Build connections</span>
+          <span class="gc-body">Bridge observers, modellers, and software developers across GRBs, kilonovae, supernovae, TDEs, and LFBOTs.</span>
+        </div>
+        <div class="goal-card">
+          <span class="gc-num">02</span>
+          <span class="gc-title">Identify open problems</span>
+          <span class="gc-body">Surface the real blockers — in modelling, inference, multi-messenger follow-up, and data access — and be honest about where we're stuck.</span>
+        </div>
+        <div class="goal-card">
+          <span class="gc-num">03</span>
+          <span class="gc-title">Community infrastructure</span>
+          <span class="gc-body">Make concrete progress on data standards and software interoperability — what do we need to converge on before Rubin changes everything?</span>
+        </div>
+        <div class="goal-card">
+          <span class="gc-num">04</span>
+          <span class="gc-title">Chart the path forward</span>
+          <span class="gc-body">What does the ET / ELT / WST / UVEX era demand of us now? Leave with action items, not just ideas.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ 3. PROGRAMME OVERVIEW ══ -->
+    <section data-background-color="#1a2744">
+      <h2>Programme at a Glance</h2>
+      <div class="day-grid">
+        <div class="day-col">
+          <span class="day-name">Monday</span>
+          <span class="day-date-label">27 July</span>
+          <div class="day-item t-disc">Welcome &amp; intros</div>
+          <div class="day-item t-talk">GRB talks ×3</div>
+          <div class="day-item t-redback">Redback tutorial</div>
+          <div class="day-item t-demo">Yallup: blackjax</div>
+          <div class="day-item t-disc">Modelling discussion</div>
+          <div class="day-item t-disc">Inference discussion</div>
+          <div class="day-item t-social">Welcome drinks 18:00</div>
+        </div>
+        <div class="day-col">
+          <span class="day-name">Tuesday</span>
+          <span class="day-date-label">28 July</span>
+          <div class="day-item t-talk">KN/GW talks ×3</div>
+          <div class="day-item t-demo">Vieira: TROVE</div>
+          <div class="day-item t-disc">Tanvir: Next-gen facilities</div>
+          <div class="day-item t-disc">Multi-messenger follow-up</div>
+        </div>
+        <div class="day-col">
+          <span class="day-name">Wednesday</span>
+          <span class="day-date-label">29 July</span>
+          <div class="day-item t-talk">Binary/compact talks ×4</div>
+          <div class="day-item t-demo">Grayling: templates</div>
+          <div class="day-item t-disc">Progenitor constraints</div>
+          <div class="day-item t-disc">AI &amp; ML discussion</div>
+          <div class="day-item t-social">Evening social 18:30</div>
+        </div>
+        <div class="day-col">
+          <span class="day-name">Thursday</span>
+          <span class="day-date-label">30 July</span>
+          <div class="day-item t-talk">TDE/SLSNe talks ×3</div>
+          <div class="day-item t-demo">Sarin: Redback-CSM/JAX</div>
+          <div class="day-item t-demo">Franz: OTTER</div>
+          <div class="day-item t-talk">SN/GRB talks ×2</div>
+          <div class="day-item t-disc">GRBs/FXTs discussion</div>
+          <div class="day-item t-disc">Software &amp; data standards</div>
+        </div>
+        <div class="day-col">
+          <span class="day-name">Friday</span>
+          <span class="day-date-label">31 July</span>
+          <div class="day-item t-talk">LFBOT/GRB-SN talks ×4</div>
+          <div class="day-item t-demo">Alvey: inference at scale</div>
+          <div class="day-item t-disc">Open discussion</div>
+          <div class="day-item t-disc">Closing session</div>
+          <div class="day-item t-social">Farewell drinks 17:00</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ 4. LOGISTICS ══ -->
+    <section data-background-color="#1a2744">
+      <h2>Logistics</h2>
+      <div class="logistics-grid">
+        <div class="log-card">
+          <span class="log-label">Venue</span>
+          <span class="log-value">Ryle Room</span>
+          <span class="log-sub">Kavli Institute for Cosmology (KICC)<br>Madingley Road, Cambridge CB3 0HA</span>
+        </div>
+        <div class="log-card">
+          <span class="log-label">WiFi</span>
+          <span class="log-value">eduroam</span>
+          <span class="log-sub">Use your home institution credentials</span>
+        </div>
+        <div class="log-card">
+          <span class="log-label">Coffee &amp; Lunch</span>
+          <span class="log-value">Pre-arranged daily</span>
+          <span class="log-sub">See programme for exact times each day</span>
+        </div>
+        <div class="log-card">
+          <span class="log-label">Social Events</span>
+          <span class="log-value">Mon 18:00 · Wed 18:30 · Fri 17:00</span>
+          <span class="log-sub">Welcome drinks · Evening social · Farewell drinks</span>
+        </div>
+        <div class="log-card">
+          <span class="log-label">Programme &amp; Info</span>
+          <span class="log-value">cambridgetransients.github.io/<br>CosmicExplosions2026</span>
+          <span class="log-sub">Full schedule, participants, logistics</span>
+        </div>
+        <div class="log-card">
+          <span class="log-label">Questions / Organiser</span>
+          <span class="log-value">Nikhil Sarin</span>
+          <span class="log-sub">nsarin.astro@gmail.com</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ 5. CODE OF CONDUCT ══ -->
+    <section data-background-color="#1a2744">
+      <h2>Code of Conduct</h2>
+      <h3>We are committed to a respectful, inclusive workshop for everyone.</h3>
+      <ul class="coc-list" style="margin-top:0.6em;">
+        <li><strong style="color:#fff;">Be respectful and inclusive.</strong> Treat all participants with courtesy regardless of career stage, background, or identity.</li>
+        <li><strong style="color:#fff;">Critique ideas, not people.</strong> Robust scientific debate is welcome; personal attacks are not.</li>
+        <li><strong style="color:#fff;">Make space for everyone.</strong> Be mindful of how much you speak — invite others in, especially in discussions.</li>
+        <li><strong style="color:#fff;">No harassment of any kind.</strong> This includes all forms of discrimination, intimidation, and unwanted behaviour.</li>
+        <li><strong style="color:#fff;">Chatham House Rule.</strong> Unpublished results and ideas shared in discussions stay in the room unless the speaker explicitly agrees otherwise.</li>
+      </ul>
+      <p style="font-size:0.52em; color:var(--mist); margin-top:0.8em;">
+        Concerns can be raised with Nikhil Sarin at any point during the week.
+        Full policy: cambridgetransients.github.io/CosmicExplosions2026/coc.html
+      </p>
+    </section>
+
+    <!-- ══ 6. PARTICIPANT INTRODUCTIONS ══ -->
+    <section data-background-color="#1a2744">
+      <h2>Introductions</h2>
+      <h3>Let's hear from everyone — 1–2 minutes each</h3>
+      <div class="prompt-box">
+        <p>Your name &amp; institution<br>
+        What you work on<br>
+        <strong style="color:var(--gold);">One thing you hope to get out of this week</strong></p>
+      </div>
+      <p class="prompt-note">37 participants · ~1.5 min each · ~55 min total<br>
+      We'll keep it moving — save the science for the talks.</p>
+    </section>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: 'c/t',
+    transition: 'fade',
+    transitionSpeed: 'fast',
+    controls: true,
+    progress: true,
+    center: true,
+    width: 1280,
+    height: 720,
+    margin: 0.06,
+  });
+</script>
+</body>
+</html>
